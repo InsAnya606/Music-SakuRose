@@ -5,11 +5,7 @@ import asyncio
 
 class MyBot(commands.Bot):
     def __init__(self, command_prefix):
-        intents = discord.Intents.default()  # Comienza con los intents por defecto (todos en False)
-        intents.message_content = True       # Habilita el intent de contenido de mensajes
-        intents.guild_members = True         # Habilita el intent de miembros del servidor
-        # No habilitamos el intent de presencia
-        super().__init__(command_prefix=command_prefix, intents=intents)
+        super().__init__(command_prefix=command_prefix, intents=discord.Intents.all())
 
     async def on_ready(self):
         print(f'Bot conectado como {self.user}')
